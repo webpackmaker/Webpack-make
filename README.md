@@ -1,3 +1,10 @@
+```
+             _                   _   
+ _ _ _  ___ | |_  ___  ___  ___ | |_ 
+| | | || -_|| . || . || .'||  _|| '_|
+|_____||___||___||  _||__,||___||_,_|
+                 |_|                 
+```
 # Webpack Config Generator
 
 > Generates a starter webpack config file

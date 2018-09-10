@@ -10,7 +10,7 @@ const questionObjArr = [
     message: 'Enter destination path: '
   },
   {
-    name: 'dev-mode',
+    name: 'dev_mode',
     type: 'checkbox',
     message: 'Would you like to use developer mode?',
     choices: ['yes', 'no'],
@@ -27,7 +27,7 @@ const questionObjArr = [
     message: 'typescript?'
   },
   {
-    name: 'frontend-framework',
+    name: 'frontend_framework',
     type: 'checkbox',
     message: 'What is your frontend framework?',
     choices: ['React', 'Vue', 'Angular'],
@@ -79,12 +79,12 @@ const questionObjArr = [
     message: 'Prettier?'
   },
   {
-    name: 'dev-server',
+    name: 'dev_server',
     type: 'confirm',
     message: 'Would you like to use Webpack Dev Server?'
   },
   {
-    name: 'hot-reload',
+    name: 'hot_reload',
     type: 'confirm',
     message: 'With hot reloading?'
   }

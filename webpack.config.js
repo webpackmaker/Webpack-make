@@ -4,9 +4,9 @@ module.exports = {
   mode: 'development',
   entry: path.resolve(__dirname, 'index.js'),
   output: {
-    path: path.resolve(__dirname, '/build'),
-    publicPath: '/build',
-    filename: 'undefined'
+    path: path.resolve(__dirname, '/src'),
+    publicPath: '/src',
+    filename: 'build.js'
   },
   devServer: {
     contentBase: path.join(__dirname, '/'),
@@ -54,6 +54,22 @@ module.exports = {
       {
         test: /.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader']
+      },
+      {
+        test: /.less$/,
+        use: ['style-loader', 'css-loader', 'less-loader']
+      },
+      {
+        enforce: 'pre',
+        test: /.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: 'jshint-loader'
+      },
+      {
+        enforce: 'pre',
+        test: /.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: 'eslint-loader'
       }
     ]
   },

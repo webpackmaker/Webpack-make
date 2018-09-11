@@ -114,7 +114,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '${object.destination_path}'),
     publicPath: '${object.destination_path}', 
-    filename: '${object.filename}'
+    filename: 'build.js'
   },
   ${answer}
   resolve: { extensions: ['*', '.js']}

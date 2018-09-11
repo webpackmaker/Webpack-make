@@ -74,7 +74,7 @@ const questionObjArr = [
   {
     name: 'prettier',
     type: 'confirm',
-    message: 'Prettier?'
+    message: 'Would you like to auto-format your source files with Prettier / Airbnb Style?'
   },
   {
     name: 'dev_server',

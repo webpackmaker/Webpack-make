@@ -30,6 +30,7 @@ const run = async () => {
 run();
 
 function generateModuleText(object) {
+  let prod_or_dev;
   let answer = ``;
   let size = 0;
   let comma = 1;
@@ -37,6 +38,11 @@ function generateModuleText(object) {
     size++;
   }
   if (size > 0) {
+    if (object.dev_mode === true) {
+      prod_or_dev = `deveolopment`;
+    } else {
+      prod_or_dev = `production`;
+    }
     if (object.dev_server === true) {
       if (object.hot_reload === false) {
         answer += `devServer: {
@@ -84,7 +90,7 @@ function generateModuleText(object) {
 
   return `
 module.exports = {
-  mode: '${object.development}',
+  mode: '${prod_or_dev}',
   entry: '${object.entry_path}',
   output: {
     path: path.resolve(__dirname, '${object.destination_path}'),

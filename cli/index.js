@@ -88,9 +88,6 @@ function generateModuleText(object) {
           if (object[key][0] === 'Vue') {
             answer += answersKey.vue;
           }
-          if (object[key][0] === 'Angular') {
-            console.log('actually angular');
-          }
         } else {
           answer += answersKey[key];
         }

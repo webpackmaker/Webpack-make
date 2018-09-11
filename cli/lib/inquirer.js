@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const files = require('./files');
-const { questionObjArr } = require('./../../question_objects.js');
+const { questionObjArr } = require('./question_objects');
 
 module.exports = {
   retrievePath: () => {

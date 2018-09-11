@@ -10,7 +10,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.join(__dirname, '/'),
-    port: 3001,
+    port: 3000,
     hotOnly: true,
     publicPath: '/build'
   },

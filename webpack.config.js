@@ -2,10 +2,10 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, 'index.js'),
+  entry: path.resolve(__dirname, ''),
   output: {
-    path: path.resolve(__dirname, '/src'),
-    publicPath: '/src',
+    path: path.resolve(__dirname, ''),
+    publicPath: '',
     filename: 'build.js'
   },
   devServer: {
@@ -23,7 +23,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env']
+            presets: ['@babel/preset-env']
           }
         }
       },
@@ -43,7 +43,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['env', 'react']
+            presets: ['@babel/preset-env', '@babel/preset-react']
           }
         }
       },
@@ -70,7 +70,8 @@ module.exports = {
         test: /.(js|jsx)$/,
         exclude: /node_modules/,
         use: 'eslint-loader'
-      }
+      },
+      undefined
     ]
   },
   resolve: { extensions: ['*', '.js'] }

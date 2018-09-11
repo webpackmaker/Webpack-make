@@ -1,8 +1,8 @@
 {
   "name": "webpack-make",
   "version": "1.0.0",
-  "description": "Package JSON for CLI",
-  "entry": "index.jsx",
+  "description": "CLI for Webpack Config",
+  "entry": "index.js",
   "license": "MIT",
   "bin": {
     "webpackmake": "./index.js"

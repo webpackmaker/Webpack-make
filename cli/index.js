@@ -13,6 +13,11 @@ const inquirer = require('./lib/inquirer');
 
 const answersKey = require('./lib/answer');
 
+const { npmMods } = require('./lib/npmMods');
+
+const { spawn } = require('child_process');
+
+
 // clears the terminal
 clear();
 
@@ -25,9 +30,50 @@ console.log(
 const run = async () => {
   const retrievePaths = await inquirer.retrievePath();
   // console.log(retrievePaths);
-  console.log(generateModuleText(retrievePaths));
+  generateModuleText(retrievePaths);
+  if (retrievePaths['install_deps']) {
+    generateNpmString(retrievePaths);
+  }
 };
 run();
+
+function generateNpmString(obj) {
+  let npmString = '--save-dev';
+
+  const npm_mods = npmMods(); // object
+
+  // console.log('typeof', npm_mods['css'])
+
+  // // npmString.concat(npm_mods['css']);
+  // npmString += npm_mods['css'];
+
+  for (let key in obj) {
+    if (Array.isArray(obj[key])) {
+      // console.log('we are inside array is array');
+      // console.log(obj[key][0]);
+      // npmString.concat(npm_mods[key][0]);
+      npmString += ' ' + npm_mods[obj[key][0]];
+    }
+
+    if (obj[key] === true) {
+      // npmString.concat(npm_mods[key]);
+      if (npm_mods[key]) {
+        npmString += ' ' +  npm_mods[key];
+      }
+    }
+  }
+
+const command = spawn('npm', ['i', npmString]);
+  command.stdout.on('data', data => {
+    console.log(`stdout: ${data}`);
+  });
+  command.stderr.on('data', data => {
+    console.log(`stderror: ${data}`);
+  });
+  command.on('close', code => {
+    console.log(`child process exited with code ${code}`);
+  });
+}
 
 function generateModuleText(object) {
   let prod_or_dev;
@@ -39,7 +85,7 @@ function generateModuleText(object) {
   }
   if (size > 0) {
     if (object.dev_mode === true) {
-      prod_or_dev = `deveolopment`;
+      prod_or_dev = `development`;
     } else {
       prod_or_dev = `production`;
     }
@@ -68,7 +114,7 @@ function generateModuleText(object) {
 
     // loop over answers checking for True
     for (key in object) {
-      console.log(key);
+      // console.log(key);
       if (
         object[key] === true &&
         key !== 'dev_mode' &&

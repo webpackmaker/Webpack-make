@@ -56,14 +56,14 @@ function generateModuleText(object) {
       if (object.hot_reload === false) {
         answer += `devServer: {
     contentBase: path.join(__dirname, '/'),
-    port: 3001,
+    port: 3000,
     publicPath: '/build',
   },
   `;
       } else {
         answer += `devServer: {
     contentBase: path.join(__dirname, '/'),
-    port: 3001,
+    port: 3000,
     hotOnly: true,
     publicPath: '/build',
   },

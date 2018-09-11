@@ -13,6 +13,8 @@ const inquirer = require('./lib/inquirer');
 
 const answersKey = require('./lib/answer');
 
+const fs = require('fs');
+
 // clears the terminal
 clear();
 
@@ -24,8 +26,11 @@ console.log(
 // run: starts the logic of the program
 const run = async () => {
   const retrievePaths = await inquirer.retrievePath();
-  // console.log(retrievePaths);
-  console.log(generateModuleText(retrievePaths));
+  fs.writeFile(`webpack.config.js`, generateModuleText(retrievePaths), err => {
+    if (err) {
+      throw err;
+    }
+  });
 };
 run();
 
@@ -68,15 +73,27 @@ function generateModuleText(object) {
 
     // loop over answers checking for True
     for (key in object) {
-      console.log(key);
       if (
-        object[key] === true &&
-        key !== 'dev_mode' &&
-        key !== 'dev_server' &&
-        key !== 'hot_reload' &&
-        key !== 'prettier'
+        (object[key] === true &&
+          key !== 'dev_mode' &&
+          key !== 'dev_server' &&
+          key !== 'hot_reload' &&
+          key !== 'prettier') ||
+        key === 'frontend_framework'
       ) {
-        answer += answersKey[key];
+        if (key === 'frontend_framework') {
+          if (object[key][0] === 'React') {
+            answer += answersKey.react;
+          }
+          if (object[key][0] === 'Vue') {
+            answer += answersKey.vue;
+          }
+          if (object[key][0] === 'Angular') {
+            console.log('actually angular');
+          }
+        } else {
+          answer += answersKey[key];
+        }
         if (comma < size) {
           answer += `,`;
         }
@@ -85,10 +102,11 @@ function generateModuleText(object) {
     }
     answer += `
   ]
-}`;
+},`;
   }
 
-  return `
+  return `const path = require('path');
+
 module.exports = {
   mode: '${prod_or_dev}',
   entry: '${object.entry_path}',

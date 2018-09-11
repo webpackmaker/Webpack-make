@@ -15,6 +15,10 @@ const answersKey = require('./lib/answer');
 
 const fs = require('fs');
 
+const { npmMods } = require('./lib/npmMods');
+
+const { spawn } = require('child_process');
+
 // clears the terminal
 clear();
 
@@ -26,6 +30,7 @@ console.log(
 // run: starts the logic of the program
 const run = async () => {
   const retrievePaths = await inquirer.retrievePath();
+  // console.log(retrievePaths);
   fs.writeFile(
     `../webpack.config.js`,
     generateModuleText(retrievePaths),
@@ -35,8 +40,50 @@ const run = async () => {
       }
     }
   );
+  if (retrievePaths['install_deps']) {
+    generateNpmString(retrievePaths);
+  }
 };
 run();
+
+function generateNpmString(obj) {
+  let npmString = [];
+
+  const npm_mods = npmMods(); // object
+
+  // console.log('typeof', npm_mods['css'])
+
+  // // npmString.concat(npm_mods['css']);
+  // npmString += npm_mods['css'];
+
+  for (let key in obj) {
+    if (Array.isArray(obj[key])) {
+      // console.log('we are inside array is array');
+      // console.log(obj[key][0]);
+      // npmString.concat(npm_mods[key][0]);
+      npmString.push(npm_mods[obj[key][0]]);
+    }
+
+    if (obj[key] === true) {
+      // npmString.concat(npm_mods[key]);
+      if (npm_mods[key]) {
+        npmString.push(npm_mods[key]);
+      }
+    }
+  }
+  for (let i = 0; i < npmString.length; i++) {
+    const command = spawn('npm', ['i', npmString[i], '--save-dev']);
+    command.stdout.on('data', data => {
+      console.log(`stdout: ${data}`);
+    });
+    command.stderr.on('data', data => {
+      console.log(`stderror: ${data}`);
+    });
+    command.on('close', code => {
+      console.log(`child process exited with code ${code}`);
+    });
+  }
+}
 
 function generateModuleText(object) {
   let prod_or_dev;

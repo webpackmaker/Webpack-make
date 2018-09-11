@@ -71,6 +71,11 @@ const questionObjArr = [
     name: 'hot_reload',
     type: 'confirm',
     message: 'With hot reloading?'
+  },
+  {
+    name: 'install_deps',
+    type: 'confirm',
+    message: 'Would you like to install these dependencies automatically?'
   }
 ];
 

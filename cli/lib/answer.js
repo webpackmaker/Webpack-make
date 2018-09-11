@@ -6,7 +6,7 @@ let answers = {
       "loader": "babel-loader",
       "options": {
           "presets": [
-              "env"
+              "@babel/preset-env"
           ]
       }
     }
@@ -18,8 +18,8 @@ let answers = {
       "loader": "babel-loader",
       "options": {
         "presets": [
-          "env",
-          "react"
+          "@babel/preset-env",
+          "@babel/preset-react"
         ]
       }
     }

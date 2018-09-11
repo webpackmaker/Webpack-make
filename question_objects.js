@@ -11,10 +11,8 @@ const questionObjArr = [
   },
   {
     name: 'dev_mode',
-    type: 'checkbox',
-    message: 'Would you like to use developer mode?',
-    choices: ['yes', 'no'],
-    default: ['yes']
+    type: 'confirm',
+    message: 'Would you like to use developer mode?'
   },
   {
     name: 'babel',

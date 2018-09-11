@@ -24,38 +24,62 @@ console.log(
 // run: starts the logic of the program
 const run = async () => {
   const retrievePaths = await inquirer.retrievePath();
-  console.log(retrievePaths);
-  generateModuleText(retrievePaths);
+  // console.log(retrievePaths);
+  console.log(generateModuleText(retrievePaths));
 };
 run();
 
 function generateModuleText(object) {
-  for (key in answersKey) {
-    console.log(answersKey[key]);
-  }
   let answer = ``;
   let size = 0;
   let comma = 1;
-  for (key in object.answers) {
+  for (key in object) {
     size++;
   }
   if (size > 0) {
-    answer = `
-    "module": {
-      "rules": [ 
-      `;
-    for (key in object.answers) {
-      answer += object.answers[key];
-      if (comma < size) {
-        answer += `,
-        `;
+    if (object.dev_server === true) {
+      if (object.hot_reload === false) {
+        answer += `devServer: {
+    contentBase: path.join(__dirname, '/'),
+    port: 3001,
+    publicPath: '/build',
+  },
+  `;
+      } else {
+        answer += `devServer: {
+    contentBase: path.join(__dirname, '/'),
+    port: 3001,
+    hotOnly: true,
+    publicPath: '/build',
+  },
+`;
       }
-      comma++;
     }
     answer += `
-      ]
+  "module": {
+    "rules": [
+  `;
+
+    // loop over answers checking for True
+    for (key in object) {
+      console.log(key);
+      if (
+        object[key] === true &&
+        key !== 'dev_mode' &&
+        key !== 'dev_server' &&
+        key !== 'hot_reload' &&
+        key !== 'prettier'
+      ) {
+        answer += answersKey[key];
+        if (comma < size) {
+          answer += `,`;
+        }
+        comma++;
+      }
     }
-    `;
+    answer += `
+  ]
+}`;
   }
 
   return `

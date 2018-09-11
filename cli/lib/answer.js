@@ -1,104 +1,84 @@
 let answers = {
-  babel: `
-  {
-    "test": /\.js$/,
-    "exclude": /node_modules/,
-    "use": {
-        "loader": "babel-loader",
-        "options": {
-            "presets": [
-                "env"
-            ]
-        }
+  babel: `{
+  "test": /\.js$/,
+  "exclude": /node_modules/,
+  "use": {
+      "loader": "babel-loader",
+      "options": {
+          "presets": [
+              "env"
+          ]
+      }
     }
-  }
-  `,
-  react: `
-  {
+  }`,
+  react: `{
     "test": /\.(js|jsx)$/,
     "exclude": /node_modules/,
     "use": {
-        "loader": "babel-loader",
-        "options": {
-            "presets": [
-                "env",
-                "react"
-            ]
-        }
+      "loader": "babel-loader",
+      "options": {
+        "presets": [
+          "env",
+          "react"
+        ]
+      }
     }
-  }
-  `,
-  typescript: `
-  {
+  }`,
+  typescript: `{
     "test": /\.tsx?$/,
     "exclude": /node_modules/,
     "use": {
-        "loader": "ts-loader",
-        "options": {
-            "transpileOnly": true
-        }
+      "loader": "ts-loader",
+      "options": {
+        "transpileOnly": true
+      }
     }
-  }
-  `,
-  vue: `
-  {
+  }`,
+  vue: `{
     "test": /\.vue$/,
     "exclude": /node_modules/,
     "use": "vue-loader"
-  }
-  `,
-  css: `
-  {
+  }`,
+  css: `{
     "test": /\.css$/,
     "use": [
         "style-loader",
         "css-loader"
     ]
-  }
-  `,
-  scss: `
-  {
+  }`,
+  scss: `{
     "test": /\.scss$/,
     "use": [
         "style-loader",
         "css-loader",
         "sass-loader"
     ]
-  }
-  `,
-  less: `
-  {
+  }`,
+  less: `{
     "test": /\.less$/,
     "use": [
         "style-loader",
         "css-loader",
         "less-loader"
     ]
-  }
-  `,
-  jshint: `
-  {
+  }`,
+  jshint: `{
     "enforce": "pre",
     "test": /\.(js|jsx)$/,
     "exclude": /node_modules/,
     "use": "jshint-loader"
-  }
-  `,
-  eslint: `
-  {
+  }`,
+  eslint: `{
     "enforce": "pre",
     "test": /\.(js|jsx)$/,
     "exclude": /node_modules/,
     "use": "eslint-loader"
-  }
-  `,
-  dev_server: `
-  devServer: {
+  }`,
+  dev_server: `devServer: {
     contentBase: path.join(__dirname, '/'),
     port: 8080,
     publicPath: '/build',
-  }
-  `
+  }`
 };
 
 module.exports = answers;

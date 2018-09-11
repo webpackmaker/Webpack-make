@@ -26,11 +26,15 @@ console.log(
 // run: starts the logic of the program
 const run = async () => {
   const retrievePaths = await inquirer.retrievePath();
-  fs.writeFile(`webpack.config.js`, generateModuleText(retrievePaths), err => {
-    if (err) {
-      throw err;
+  fs.writeFile(
+    `../webpack.config.js`,
+    generateModuleText(retrievePaths),
+    err => {
+      if (err) {
+        throw err;
+      }
     }
-  });
+  );
 };
 run();
 
@@ -44,7 +48,7 @@ function generateModuleText(object) {
   }
   if (size > 0) {
     if (object.dev_mode === true) {
-      prod_or_dev = `deveolopment`;
+      prod_or_dev = `development`;
     } else {
       prod_or_dev = `production`;
     }
@@ -106,7 +110,7 @@ function generateModuleText(object) {
 
 module.exports = {
   mode: '${prod_or_dev}',
-  entry: '${object.entry_path}',
+  entry: path.resolve(__dirname, '${object.entry_path}'),
   output: {
     path: path.resolve(__dirname, '${object.destination_path}'),
     publicPath: '${object.destination_path}', 

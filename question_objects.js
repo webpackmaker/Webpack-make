@@ -28,24 +28,9 @@ const questionObjArr = [
     name: 'frontend_framework',
     type: 'checkbox',
     message: 'What is your frontend framework?',
-    choices: ['React', 'Vue', 'Angular'],
+    choices: ['React', 'Vue'],
     default: ['React']
   },
-  // {
-  //   name: 'react',
-  //   type: 'confirm',
-  //   message: 'Are you using react with JSX?',
-  // },
-  // {
-  //   name: 'vue',
-  //   type: 'confirm',
-  //   message: 'Vue?',
-  // },
-  // {
-  //   name: 'angular',
-  //   type: 'confirm',
-  //   message: 'Angular?',
-  // },
   {
     name: 'css',
     type: 'confirm',
@@ -74,7 +59,8 @@ const questionObjArr = [
   {
     name: 'prettier',
     type: 'confirm',
-    message: 'Would you like to auto-format your source files with Prettier / Airbnb Style?'
+    message:
+      'Would you like to auto-format your source files with Prettier / Airbnb Style?'
   },
   {
     name: 'dev_server',

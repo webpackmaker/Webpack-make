@@ -1,6 +1,6 @@
 {
   "name": "webpack-make",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "CLI for Webpack Config",
   "entry": "index.js",
   "license": "MIT",

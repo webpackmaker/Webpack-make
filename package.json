@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/npm/cli.git"
+    "url": "https://github.com/TeamToes/Webpack-make"
   },
   "bin": {
     "wmake": "./index.js"

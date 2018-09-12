@@ -72,11 +72,12 @@ function generateNpmString(obj) {
     command.stdout.on('data', data => {
       console.log(`stdout: ${data}`);
     });
-    command.stderr.on('data', data => {
-      console.log(`stderror: ${data}`);
-    });
     command.on('close', code => {
-      console.log(`child process exited with code ${code}`);
+      if(code === 0) {
+        console.log(`Package installed successfully`);
+      } else {
+        console.log(`There was an error with ${npmString[i]}`)
+      }
     });
   }
 }

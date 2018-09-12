@@ -22,6 +22,12 @@ npm init
 npm i webpack-make --save
 npm link ./node_modules/webpack-make
 ```
+#### To run Webpack-make (wmake)
+```
+wmake
+npm i
+npx webpack
+```
 #### To symlink globally
 ```
 npm init

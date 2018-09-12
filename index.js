@@ -157,7 +157,7 @@ function generateModuleText(object) {
 
 module.exports = {
   mode: '${prod_or_dev}',
-  entry: ./'${object.entry_path}',
+  entry: './${object.entry_path}',
   output: {
     path: path.resolve(__dirname, '/'),
     filename: 'build.js'

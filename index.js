@@ -47,6 +47,7 @@ run();
 
 function generateNpmString(obj) {
   let npmString = [];
+  npmString.push('webpack-cli');
   npmString.push('webpack');
 
   const npm_mods = npmMods(); // object

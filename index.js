@@ -17,7 +17,7 @@ const fs = require('fs');
 
 const { npmMods } = require('./lib/npmMods');
 
-const { spawnSync } = require('child_process');
+const { spawn } = require('child_process');
 
 // clears the terminal
 clear();
@@ -70,7 +70,7 @@ function generateNpmString(obj) {
     }
   }
   for (let i = 0; i < npmString.length; i++) {
-    const command = spawnSync('npm', ['i', npmString[i], '--save-dev']);
+    const command = spawn('npm', ['i', npmString[i], '--save-dev']);
     command.stdout.on('data', data => {
       console.log(`stdout: ${data}`);
     });

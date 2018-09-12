@@ -160,6 +160,7 @@ module.exports = {
   entry: './${object.entry_path}',
   output: {
     path: path.resolve(__dirname, '/'),
+    publicPath: '${object.destination_path}',
     filename: 'build.js'
   },
   ${answer}

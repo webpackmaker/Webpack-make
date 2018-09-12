@@ -116,8 +116,8 @@ function generateModuleText(object) {
       }
     }
     answer += `
-  "module": {
-    "rules": [
+  module: {
+    rules: [
   `;
 
     // loop over answers checking for True
@@ -156,10 +156,9 @@ function generateModuleText(object) {
 
 module.exports = {
   mode: '${prod_or_dev}',
-  entry: path.resolve(__dirname, '${object.entry_path}'),
+  entry: ./'${object.entry_path}',
   output: {
-    path: path.resolve(__dirname, '${object.destination_path}'),
-    publicPath: '${object.destination_path}', 
+    path: path.resolve(__dirname, '/'),
     filename: 'build.js'
   },
   ${answer}

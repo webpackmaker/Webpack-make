@@ -9,7 +9,7 @@
     "url": "https://github.com/TeamToes/Webpack-make"
   },
   "bin": {
-    "wmake": "./bin/index.js"
+    "wmake": "./index.js"
   },
   "devDependencies": {},
   "dependencies": {

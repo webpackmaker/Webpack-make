@@ -16,13 +16,23 @@ By TEAM TOES
 
 #### Run from your project directory—this is where your webpackconfig will be saved. 
 
-#### To run without typing `npm run wmake` every time, run the following:
+#### To symlink locally:
 ```
-npm i wmake
-npm link
-wmake [-help, -v]
+npm init
+npm i webpack-make --save
+npm link ./node_modules/webpack-make
 ```
-#### See the following for more info:
+#### To symlink globally
+```
+npm init
+npm i webpack-make --save -g
+wmake
+```
+#### To unlink
+```
+npm uninstall webpack-make -g
+```
+#### Supported packages:
 * Webpack: https://www.npmjs.com/package/webpack
 * Babel: https://www.npmjs.com/package/babel-loader
 * React: https://babeljs.io/docs/en/babel-preset-react
@@ -37,6 +47,7 @@ wmake [-help, -v]
 * Dev_Server: https://www.npmjs.com/package/webpack-dev-server
 
 ###### Send us a message to add support for more!
+`teamtoescoding at gmail`
 
 ## License
 

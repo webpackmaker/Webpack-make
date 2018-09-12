@@ -38,3 +38,6 @@ wmake [-help, -v]
 
 ###### Send us a message to add support for more!
 
+## License
+
+[MIT](LICENSE)

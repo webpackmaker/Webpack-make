@@ -2,77 +2,85 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, ''),
+  entry: path.resolve(__dirname, 'index.js'),
   output: {
-    path: path.resolve(__dirname, ''),
-    publicPath: '',
+    path: path.resolve(__dirname, '/src'),
+    publicPath: '/src', 
     filename: 'build.js'
   },
   devServer: {
     contentBase: path.join(__dirname, '/'),
     port: 3000,
     hotOnly: true,
-    publicPath: '/build'
+    publicPath: '/build',
   },
 
-  module: {
-    rules: [
-      {
-        test: /.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      },
-      {
-        test: /.tsx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true
-          }
-        }
-      },
-      {
-        test: /.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
-      },
-      {
-        test: /.css$/,
-        use: ['style-loader', 'css-loader']
-      },
-      {
-        test: /.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      },
-      {
-        test: /.less$/,
-        use: ['style-loader', 'css-loader', 'less-loader']
-      },
-      {
-        enforce: 'pre',
-        test: /.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: 'jshint-loader'
-      },
-      {
-        enforce: 'pre',
-        test: /.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: 'eslint-loader'
-      },
-      undefined
+  "module": {
+    "rules": [
+  {
+  "test": /.js$/,
+  "exclude": /node_modules/,
+  "use": {
+      "loader": "babel-loader",
+      "options": {
+          "presets": [
+              "@babel/preset-env"
+          ]
+      }
+    }
+  },{
+    "test": /.tsx?$/,
+    "exclude": /node_modules/,
+    "use": {
+      "loader": "ts-loader",
+      "options": {
+        "transpileOnly": true
+      }
+    }
+  },{
+    "test": /.(js|jsx)$/,
+    "exclude": /node_modules/,
+    "use": {
+      "loader": "babel-loader",
+      "options": {
+        "presets": [
+          "@babel/preset-env",
+          "@babel/preset-react"
+        ]
+      }
+    }
+  },{
+    "test": /.css$/,
+    "use": [
+        "style-loader",
+        "css-loader"
     ]
+  },{
+    "test": /.scss$/,
+    "use": [
+        "style-loader",
+        "css-loader",
+        "sass-loader"
+    ]
+  },{
+    "test": /.less$/,
+    "use": [
+        "style-loader",
+        "css-loader",
+        "less-loader"
+    ]
+  },{
+    "enforce": "pre",
+    "test": /.(js|jsx)$/,
+    "exclude": /node_modules/,
+    "use": "jshint-loader"
+  },{
+    "enforce": "pre",
+    "test": /.(js|jsx)$/,
+    "exclude": /node_modules/,
+    "use": "eslint-loader"
   },
-  resolve: { extensions: ['*', '.js'] }
+  ]
+},
+  resolve: { extensions: ['*', '.js']}
 };

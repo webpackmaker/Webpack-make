@@ -30,9 +30,8 @@ console.log(
 // run: starts the logic of the program
 const run = async () => {
   const retrievePaths = await inquirer.retrievePath();
-  // console.log(retrievePaths);
   fs.writeFile(
-    `../webpack.config.js`,
+    `./webpack.config.js`,
     generateModuleText(retrievePaths),
     err => {
       if (err) {
@@ -51,23 +50,20 @@ function generateNpmString(obj) {
 
   const npm_mods = npmMods(); // object
 
-  // console.log('typeof', npm_mods['css'])
-
-  // // npmString.concat(npm_mods['css']);
-  // npmString += npm_mods['css'];
-
   for (let key in obj) {
     if (Array.isArray(obj[key])) {
-      // console.log('we are inside array is array');
-      // console.log(obj[key][0]);
-      // npmString.concat(npm_mods[key][0]);
       npmString.push(npm_mods[obj[key][0]]);
     }
 
     if (obj[key] === true) {
-      // npmString.concat(npm_mods[key]);
       if (npm_mods[key]) {
-        npmString.push(npm_mods[key]);
+        if(Array.isArray(npm_mods[key])) {
+          for(let i = 0; i < npm_mods[key].length; i++) {
+            npmString.push(npm_mods[key][i]);
+          }
+        } else {
+          npmString.push(npm_mods[key]);
+        }
       }
     }
   }
@@ -129,6 +125,7 @@ function generateModuleText(object) {
           key !== 'dev_mode' &&
           key !== 'dev_server' &&
           key !== 'hot_reload' &&
+          key !== 'install_deps' &&
           key !== 'prettier') ||
         key === 'frontend_framework'
       ) {

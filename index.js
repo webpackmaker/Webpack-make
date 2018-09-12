@@ -157,13 +157,13 @@ function generateModuleText(object) {
 
 module.exports = {
   mode: '${prod_or_dev}',
-  entry: './${object.entry_path}',
+  entry: path.resolve(__dirname, '${object.entry_path}'),
   output: {
-    path: path.resolve(__dirname, '/'),
-    publicPath: '${object.destination_path}',
+    path: path.resolve(__dirname, '${object.destination_path}'),
+    publicPath: '${object.destination_path}', 
     filename: 'build.js'
   },
   ${answer}
   resolve: { extensions: ['*', '.js']}
 };`;
-}
+};

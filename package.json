@@ -12,9 +12,8 @@
     "test": "jest -i --watch",
     "test:update": "npm run test --updateSnapshot",
     "test:coverage": "jest -i --coverage",
-    "build": "webpack",
-    "db": "node save-data/mongodb-orm.js",
-    "wmake": "cd cli && npm i"
+    "deploy": "wmake",
+    "db": "node save-data/mongodb-orm.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",

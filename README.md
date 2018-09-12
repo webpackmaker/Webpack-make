@@ -17,10 +17,11 @@ By TEAM TOES
 #### Run from your project directory—this is where your webpackconfig will be saved. 
 
 #### To run without typing `npm run wmake` every time, run the following:
-#### `npm i wmake`
-#### `npm deploy`
-#### `wmake [-help, -v]`
-
+```
+#### npm i wmake
+#### npm deploy
+#### wmake [-help, -v]
+```
 #### See the following for more info:
 ###### Webpack: https://www.npmjs.com/package/webpack
 ###### Babel: https://www.npmjs.com/package/babel-loader
@@ -35,5 +36,5 @@ By TEAM TOES
 ###### Prettier: https://www.npmjs.com/package/prettier-webpack-plugin
 ###### Dev_Server: https://www.npmjs.com/package/webpack-dev-server
 
-Send us a message to add support for more!
+######Send us a message to add support for more!
 

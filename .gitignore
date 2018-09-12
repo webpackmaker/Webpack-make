@@ -1,2 +1,2 @@
-node_modules/.
+./cli/node_modules/.
 package-lock.json

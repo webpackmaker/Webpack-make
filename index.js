@@ -69,8 +69,10 @@ function generateNpmString(obj) {
       }
     }
   }
+  npmString.push(' ');
+  npmString.push('');
   for (let i = 0; i < npmString.length; i++) {
-    const command = spawn('npm', ['i', npmString[i], '--save-dev']);
+    const command = spawn('npm', ['i', npmString[i], '--save-dev --verbose']);
     command.stdout.on('data', data => {
       console.log(`stdout: ${data}`);
     });

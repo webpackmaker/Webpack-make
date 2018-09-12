@@ -9,7 +9,7 @@
     "url": "https://github.com/npm/cli.git"
   },
   "bin": {
-    "webpackmake": "./index.js"
+    "wmake": "./index.js"
   },
   "devDependencies": {},
   "dependencies": {

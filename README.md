@@ -19,7 +19,7 @@ By TEAM TOES
 #### To run without typing `npm run wmake` every time, run the following:
 ```
 npm i wmake
-npm deploy
+npm link
 wmake [-help, -v]
 ```
 #### See the following for more info:

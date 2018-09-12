@@ -18,23 +18,22 @@ By TEAM TOES
 
 #### To run without typing `npm run wmake` every time, run the following:
 ```
-#### npm i wmake
-#### npm deploy
-#### wmake [-help, -v]
+npm i wmake
+npm deploy
+wmake [-help, -v]
 ```
 #### See the following for more info:
-###### Webpack: https://www.npmjs.com/package/webpack
-###### Babel: https://www.npmjs.com/package/babel-loader
-###### React: https://babeljs.io/docs/en/babel-preset-react
-###### Vue: https://www.npmjs.com/package/vue-loader
-###### Typescript: https://www.npmjs.com/package/ts-loader
-###### CSS: https://www.npmjs.com/package/style-loader, https://www.npmjs.com/package/css-loader
-###### SCSS: https://www.npmjs.com/package/sass-loader
-###### LESS: https://www.npmjs.com/package/less-loader
-###### JShint: https://www.npmjs.com/package/jshint-loader
-###### ESlint: https://www.npmjs.com/package/eslint-loader
-###### Prettier: https://www.npmjs.com/package/prettier-webpack-plugin
-###### Dev_Server: https://www.npmjs.com/package/webpack-dev-server
-
-######Send us a message to add support for more!
+Webpack: https://www.npmjs.com/package/webpack
+Babel: https://www.npmjs.com/package/babel-loader
+React: https://babeljs.io/docs/en/babel-preset-react
+Vue: https://www.npmjs.com/package/vue-loader
+Typescript: https://www.npmjs.com/package/ts-loader
+CSS: https://www.npmjs.com/package/style-loader, https://www.npmjs.com/package/css-loader
+SCSS: https://www.npmjs.com/package/sass-loader
+LESS: https://www.npmjs.com/package/less-loader
+JShint: https://www.npmjs.com/package/jshint-loader
+ESlint: https://www.npmjs.com/package/eslint-loader
+Prettier: https://www.npmjs.com/package/prettier-webpack-plugin
+Dev_Server: https://www.npmjs.com/package/webpack-dev-server
+###### Send us a message to add support for more!
 
